@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@layer base {
+  * { box-sizing: border-box; }
+  :root {
+    --font-sans: "Space Grotesk", system-ui, sans-serif;
+    --font-mono: "JetBrains Mono", monospace;
+  }
+  ::selection { background: rgba(0,245,160,0.25); }
+  ::-webkit-scrollbar { width: 5px; height: 5px; }
+  ::-webkit-scrollbar-track { background: #0A0A0F; }
+  ::-webkit-scrollbar-thumb { background: #2A2A3E; border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: #3A3A52; }
+}
+
+@layer utilities {
+  .gradient-text {
+    @apply bg-gradient-to-r from-brand to-purple-500 bg-clip-text text-transparent;
+  }
+  .glass {
+    @apply bg-dark-400/80 backdrop-blur-sm border border-dark-300;
+  }
+  .glow-brand {
+    box-shadow: 0 0 20px rgba(0,245,160,0.15);
+  }
+}

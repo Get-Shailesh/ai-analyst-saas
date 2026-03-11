@@ -1,0 +1,39 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+.env
+.env.local
+.env.production
+backend/.env  
+*.egg-info/
+
+# Node
+node_modules/
+.next/
+.turbo/
+dist/
+build/
+*.tsbuildinfo
+
+# Data / uploads
+uploads/
+*.csv
+*.xlsx
+
+# IDE
+.vscode/settings.json
+.idea/
+*.swp
+
+# Docker
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+backend/.venv/
+backend/uploads/
