@@ -19,7 +19,7 @@
 
 | Login Page                        | Dashboard                                 |
 | --------------------------------- | ----------------------------------------- |
-| ![Login](./screenshots/login.png) | ![Dashboard](./screenshots/Dashboard.png) |
+| ![Login](./screenshots/login.png) | ![Dashboard](./screenshots/dashboard.png) |
 
 ---
 
