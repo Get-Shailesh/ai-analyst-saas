@@ -32,18 +32,14 @@ app = FastAPI(
 )
 
 # ── Middleware ────────────────────────────────────────────────────────────────
-cors_origins = settings.CORS_ORIGINS.split(",") if isinstance(settings.CORS_ORIGINS, str) else settings.CORS_ORIGINS
-cors_origins = [o.strip().rstrip("/") for o in cors_origins]
-cors_origins.append("*")
-
+ 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins     = cors_origins,
-    allow_credentials = False,
-    allow_methods     = ["*"],
-    allow_headers     = ["*"],
+    allow_origins=["*"],
+    allow_credentials=False,
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
-
 @app.middleware("http")
 async def add_process_time(request: Request, call_next):
     start = time.time()
