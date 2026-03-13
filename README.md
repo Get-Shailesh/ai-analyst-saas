@@ -126,7 +126,7 @@ celery -A app.core.celery_app worker --loglevel=info --pool=solo
 
 ## 👤 Author
 
-Built by **Shailesh Khoare**
+Built by **Shailesh Khosare**
 
 ---
 
