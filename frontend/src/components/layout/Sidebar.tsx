@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useAppStore } from "@/store/useAppStore";
 import { useState } from "react";
 import {
@@ -71,6 +71,7 @@ const NAV = [
 
 export function Sidebar() {
   const pathname = usePathname();
+  const router = useRouter();
   const { user, activeDataset, logout, theme } = useAppStore();
   const isDark = theme === "dark";
   const [profileOpen, setProfileOpen] = useState(false);
@@ -196,6 +197,7 @@ export function Sidebar() {
                 onClick={() => {
                   logout();
                   setProfileOpen(false);
+                  router.push("/login");
                 }}
                 className="w-full flex items-center gap-2 px-3 py-2 rounded-lg text-xs text-red-400 hover:bg-red-500/10 transition-colors"
               >
