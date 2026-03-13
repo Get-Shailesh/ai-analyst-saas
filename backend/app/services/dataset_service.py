@@ -114,7 +114,7 @@ class DatasetService:
                 "dtype":         str(s.dtype),
                 "null_count":    int(s.isnull().sum()),
                 "unique_count":  int(s.nunique()),
-                "sample_values": s.dropna().head(5).tolist(),
+                 "sample_values": [str(v) if not isinstance(v, (int, float, bool)) else v for v in s.dropna().head(5).tolist()],
             })
         return cols
 
