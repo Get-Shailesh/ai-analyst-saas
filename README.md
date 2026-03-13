@@ -1,108 +1,135 @@
 # 🤖 AI Business Data Analyst — SaaS Platform
 
-A production-ready Full Stack AI SaaS platform that acts as an **AI Data Analyst for businesses**.
-Upload datasets, describe your business problem, and get instant insights, charts, SQL queries, Python scripts, and executive reports.
+> A production-ready Full Stack AI SaaS platform that acts as an **AI Data Analyst for businesses**.
+> Upload datasets, describe your business problem, and get instant insights, charts, SQL queries, Python scripts, and executive reports.
+
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Vercel-black?style=for-the-badge&logo=vercel)](https://ai-analyst-saas-shailesh-khoares-projects.vercel.app)
+[![Backend](https://img.shields.io/badge/Backend-Railway-purple?style=for-the-badge&logo=railway)](https://ai-analyst-saas-production.up.railway.app)
+[![License](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)](LICENSE)
 
 ---
 
-## 🏗️ Architecture Overview
+## 🌐 Live Demo
+
+🔗 **[https://ai-analyst-saas-shailesh-khoares-projects.vercel.app](https://ai-analyst-saas-shailesh-khoares-projects.vercel.app)**
+
+> Register a free account, upload a CSV or Excel file, and start analysing your data instantly.
+
+### 📸 Screenshots
+
+| Login Page                        | Dashboard                                 |
+| --------------------------------- | ----------------------------------------- |
+| ![Login](./screenshots/login.png) | ![Dashboard](./screenshots/Dashboard.png) |
+
+---
+
+## ✨ Key Features
+
+- 📂 **CSV / Excel Upload** — schema detection, column profiling, data preview
+- 🔬 **AI Analysis** — descriptive, diagnostic, trend and anomaly detection
+- 📊 **Interactive Dashboard** — real KPIs and charts from your data
+- 💬 **Chat with your Data** — ask questions in plain English
+- 🗄️ **SQL Query Generator** — auto-generate queries from natural language
+- 🐍 **Python Script Generator** — downloadable analysis scripts
+- 📗 **Excel Formula Generator** — column-level formula suggestions
+- 📄 **Report Export** — generate PDF / PowerPoint executive reports
+- 🌙 **Light / Dark Theme** — Zinc design system
+- 🔐 **JWT Authentication** — secure login and registration
+
+---
+
+## 🏗️ Architecture
 
 ```
 ai-analyst-saas/
-├── frontend/          # Next.js 14 + Tailwind + Recharts
-├── backend/           # Python FastAPI + SQLAlchemy
-├── ai_services/       # LLM analysis modules
+├── frontend/          # Next.js 14 + Tailwind + Recharts + Zustand
+├── backend/           # Python FastAPI + SQLAlchemy + Pandas
+├── ai_services/       # Statistical analysis engine
 ├── infra/             # Docker, Nginx, CI/CD
 └── docker-compose.yml
 ```
-
-## 🚀 Quick Start
-
-### Prerequisites
-- Docker & Docker Compose
-- Node.js 18+
-- Python 3.11+
-
-### 1. Clone and configure
-```bash
-git clone https://github.com/yourorg/ai-analyst-saas
-cd ai-analyst-saas
-cp .env.example .env
-# Edit .env with your API keys
-```
-
-### 2. Run with Docker (recommended)
-```bash
-docker-compose up --build
-```
-
-### 3. Run locally (development)
-```bash
-# Backend
-cd backend
-pip install -r requirements.txt
-uvicorn app.main:app --reload --port 8000
-
-# Frontend (new terminal)
-cd frontend
-npm install
-npm run dev
-
-# Celery worker (new terminal)
-cd backend
-celery -A app.core.celery_app worker --loglevel=info
-```
-
-### 4. Access the app
-- **Frontend:** http://localhost:3000
-- **API Docs:** http://localhost:8000/docs
-- **ReDoc:** http://localhost:8000/redoc
 
 ---
 
 ## 📦 Tech Stack
 
-| Layer | Technology |
-|-------|-----------|
-| Frontend | Next.js 14, Tailwind CSS, Recharts, Zustand |
-| Backend | FastAPI, SQLAlchemy, Alembic, Pydantic |
-| AI/LLM | Anthropic Claude, OpenAI GPT-4 |
-| Data | Pandas, NumPy, Scikit-learn, Statsmodels |
-| Database | PostgreSQL 15 |
-| Cache/Queue | Redis, Celery |
-| Storage | AWS S3 / Local |
-| Auth | JWT + OAuth2 |
-| Infra | Docker, Nginx, GitHub Actions |
+| Layer         | Technology                                  |
+| ------------- | ------------------------------------------- |
+| Frontend      | Next.js 14, Tailwind CSS, Recharts, Zustand |
+| Backend       | FastAPI, SQLAlchemy, Pydantic               |
+| Data Analysis | Pandas, NumPy, Scikit-learn                 |
+| Database      | PostgreSQL                                  |
+| Cache / Queue | Redis, Celery                               |
+| Auth          | JWT + OAuth2                                |
+| Deployment    | Vercel (frontend) + Railway (backend + DB)  |
 
 ---
 
-## 🔑 Key Features
+## 🚀 Run Locally
 
-- 📂 CSV / Excel upload with schema detection
-- 🔬 Auto AI analysis (descriptive, diagnostic, predictive)
-- 📊 Interactive dashboard with KPIs and charts
-- 💬 Chat with your data (natural language queries)
-- 🗄️ Auto SQL query generation
-- 🐍 Downloadable Python analysis scripts
-- 📗 Excel formula generator
-- 📄 PDF/PowerPoint report export
-- 🚨 Anomaly detection and alerts
-- 🔐 JWT authentication + role-based access
+### Prerequisites
 
----
+- Node.js 18+
+- Python 3.11+
+- PostgreSQL
+- Redis
 
-## 📁 Project Structure
+### 1. Clone the repository
 
-See [PROJECT_STRUCTURE.md](./PROJECT_STRUCTURE.md) for detailed file descriptions.
-
-## 🧪 Testing
 ```bash
-# Backend tests
-cd backend && pytest tests/ -v
-
-# Frontend tests
-cd frontend && npm run test
+git clone https://github.com/Get-Shailesh/ai-analyst-saas
+cd ai-analyst-saas
 ```
 
+### 2. Backend setup
+
+```bash
+cd backend
+python -m venv .venv
+.venv\Scripts\activate  # Windows
+pip install -r requirements.txt
+uvicorn app.main:app --reload --port 8000
+```
+
+### 3. Frontend setup
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+### 4. Celery worker
+
+```bash
+cd backend
+.venv\Scripts\activate
+celery -A app.core.celery_app worker --loglevel=info --pool=solo
+```
+
+### 5. Access the app
+
+- **Frontend:** http://localhost:3000
+- **API Docs:** http://localhost:8000/docs
+
+---
+
 ## 🚢 Deployment
-See [infra/README.md](./infra/README.md) for production deployment instructions.
+
+| Service     | Platform | Status  |
+| ----------- | -------- | ------- |
+| Frontend    | Vercel   | ✅ Live |
+| Backend API | Railway  | ✅ Live |
+| PostgreSQL  | Railway  | ✅ Live |
+
+---
+
+## 👤 Author
+
+Built by **Shailesh Khoare**
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License.
